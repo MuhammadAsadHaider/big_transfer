@@ -174,7 +174,7 @@ def main(args):
   train_set, valid_set, train_loader, valid_loader = mktrainval(args, logger)
 
   logger.info(f"Loading model from {args.model}.npz")
-  model = models.KNOWN_MODELS[args.model](head_size=len(valid_set.classes), zero_head=True)
+  model = models.KNOWN_MODELS[args.model](head_size=102 if args.dataset == "oxford_flowers102" else len(valid_set.classes), zero_head=True)
   model.load_from(np.load(f"{args.model}.npz"))
 
   logger.info("Moving model onto all GPUs")
