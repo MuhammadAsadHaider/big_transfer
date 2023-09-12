@@ -287,7 +287,7 @@ if __name__ == "__main__":
   parser = bit_common.argparser(models.KNOWN_MODELS.keys())
   parser.add_argument("--datadir", required=True,
                       help="Path to the ImageNet data folder, preprocessed for torchvision.")
-  parser.add_argument("--workers", type=int, default=8,
+  parser.add_argument("--workers", type=int, default=2,
                       help="Number of background threads used to load data.")
   parser.add_argument("--save", dest="save", action="store_true", default=True)
   main(parser.parse_args())
